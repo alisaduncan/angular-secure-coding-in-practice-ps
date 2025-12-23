@@ -1,0 +1,30 @@
+@if (product(); as productData) {
+  <div class="max-w-2xl mx-auto p-6">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <!-- Product Image -->
+      <img
+        src="{{ productData.image }}"
+        alt="{{ productData.name }}"
+        class="w-full h-64 object-cover"
+      />
+
+      <!-- Product Details -->
+      <div class="p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ productData.name }}</h1>
+        <p class="text-2xl font-bold text-pink-600 mb-4">{{ productData.price | currency }}</p>
+        <p class="text-gray-700 mb-6">{{ productData.description }}</p>
+
+        <!-- Reviews Section -->
+         @if(reviews(); as reviews) {
+        <div class="mt-6">
+          <app-reviews [reviews]="reviews" (newReview)="onNewReview($event)"/>
+        </div>
+      }
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="max-w-2xl mx-auto p-6">
+    <p class="text-gray-500">Product not found</p>
+  </div>
+}

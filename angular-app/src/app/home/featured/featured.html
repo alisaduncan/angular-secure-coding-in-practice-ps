@@ -1,0 +1,37 @@
+@let product = featured();
+<div class="mt-16">
+  <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+    ✨ Today's Special
+  </h2>
+  <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+    <div class="md:flex">
+      <div class="md:w-1/2">
+        <img [src]="product.image" [alt]="product.name" class="w-full h-64 md:h-full object-cover" />
+      </div>
+      <div class="md:w-1/2 p-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ product.name }}</h3>
+        <p class="text-3xl font-bold text-pink-600 mb-4">{{ product.price | currency }}</p>
+        <p class="text-lg text-gray-700 mb-6">{{ product.description }}</p>
+
+        <div class="mb-12">
+          <p class="text-md font-semibold text-gray-700 mb-2">Our customers say</p>
+          @if (product.reviews.length > 0) {
+          <div class="space-y-3">
+            @for (review of product.reviews; track review.id) {
+            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200">
+              <p class="text-sm font-semibold text-gray-900 mb-1">{{ review.user }}</p>
+              <p class="text-md text-gray-700">"{{ review.text }}"</p>
+            </div>
+            }
+          </div>
+          }
+        </div>
+
+        <a [routerLink]="['/products', product.id]"
+          class="inline-block bg-lime-600 hover:bg-[var(--header-bg-brown)] text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+          View Details & Reviews
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

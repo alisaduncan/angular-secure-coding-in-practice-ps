@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+
+:root {
+  --site-bg-light-pink: rgba(253, 246, 246, 1);
+  --site-font-color-dark: black;
+  --hero-bg-pink: rgba(255, 208, 201, 1);
+  --header-bg-brown: rgba(200, 125, 82, 1);
+  --site-font-color-light: white;
+  --cart-bg-dark: rgba(54, 48, 44, 1);
+  --cart-gray: rgba(54, 48, 44, 0.5);
+  --cart-boder-gray: rgba(54, 48, 44, 0.3);
+}
+
+
+body {
+  background-color: var(--site-bg-light-pink);
+  font-family: 'Work Sans', sans-serif;
+}
+
