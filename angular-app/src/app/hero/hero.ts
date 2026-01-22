@@ -7,6 +7,11 @@ import { RouterLink } from '@angular/router';
   imports: [ NgOptimizedImage, RouterLink],
   templateUrl: './hero.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: `
+    h2 {
+      color: slateblue;
+    }
+  `
 })
 export class Hero {
 

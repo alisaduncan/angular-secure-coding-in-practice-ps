@@ -82,7 +82,10 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "headers": { 
+              "Content-Security-Policy": "default-src 'self'; style-src 'self' 'nonce-123' fonts.googleapis.com; script-src 'self' 'nonce-123'; font-src data: fonts.gstatic.com; frame-src https://www.youtube.com/" 
+            }
           },
           "configurations": {
             "production": {
