@@ -25,6 +25,11 @@ import { Auth } from '../auth';
                 Settings
               </a>
             </li>
+            <li>
+              <a routerLink="/admin">
+                Admin
+              </a>
+            </li>
             @if (authService.isLoggedIn()) {
             <li class="border-1 border-white px-3 py-1 rounded-md hover:bg-[var(--site-bg-light-pink)] hover:text-[var(--header-bg-brown)] transition-colors">
               <button (click)="logout()" class="font-semibold uppercase cursor-pointer">
