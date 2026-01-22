@@ -90,7 +90,7 @@ app.route('/api/products/:id/reviews')
 
     return res.send({ productId, reviews: productReviews });
   })
-  .post((req, res) => {
+  .post(authMiddleware, (req, res) => {
     // should verify the CSRF Token cookie!
     const productId = parseInt(req.params.id);
     const product = products.find(p => p.id === productId);
