@@ -25,14 +25,14 @@ import { Review } from '../../product-types';
 
         <div class="mb-4">
           <label for="video" class="block text-sm font-medium text-gray-700 mb-2">
-            Video Link (optional)
+            Video ID (optional)
           </label>
           <input
             type="text"
             id="video"
             [field]="reviewForm.video"
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter video link"
+            placeholder="Enter video ID"
           />
         </div>
 

@@ -26,7 +26,11 @@ export class VideoPlayer {
   private sanitizer = inject(DomSanitizer);
   
   video = input.required<string>();
-  videoUrl = computed(() => this.video());
+  videoUrl(): SafeResourceUrl {
+    const url = `${this.#videoHost}/${this.video()}`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
   readonly #videoHost = 'https://www.youtube.com/embed';
 
 }

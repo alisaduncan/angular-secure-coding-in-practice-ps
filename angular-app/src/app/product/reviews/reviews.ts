@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Review as ReviewType } from '../../product-types';
 import { Review } from './review';
-import { AddReview } from './add-review';
 import { AddReviewWithVideo } from "./add-review-with-video";
 
 
 @Component({
   selector: 'app-reviews',
-  imports: [Review, AddReview],
+  imports: [Review, AddReviewWithVideo],
   template: `
     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Reviews</h2>
     <div class="mb-6 space-y-4">
@@ -22,7 +21,7 @@ import { AddReviewWithVideo } from "./add-review-with-video";
     </div>
 
     <!-- Add Review Form -->
-    <app-add-review (submitReview)="onSubmitReview($event)" />
+    <app-add-review-with-video (submitReview)="onSubmitReview($event)" />
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -2,7 +2,7 @@ import { Component, inject, signal, resource } from '@angular/core';
 import { Products as ProductsService } from '../products';
 import { Hero } from '../hero/hero';
 import { ProductItem } from "./product-item";
-import { form, Field } from '@angular/forms/signals';
+import { form, Field, pattern } from '@angular/forms/signals';
 import { firstValueFrom } from 'rxjs';
 
 interface SearchRequest {
@@ -42,7 +42,9 @@ export class Shop {
   private productService = inject(ProductsService);
 
   searchModel = signal({ query: '' });
-  searchForm = form(this.searchModel);
+  searchForm = form(this.searchModel, (schema) => {
+    pattern(schema.query, /^[a-z ]*$/i)
+  });
 
   #searchQuery = signal('');
 
@@ -52,7 +54,9 @@ export class Shop {
   });
 
   onSearch() {
-    const query = this.searchForm.query().value();
-    this.#searchQuery.set(query);
+    if (this.searchForm.query().valid()) {
+      const query = this.searchForm.query().value();
+      this.#searchQuery.set(query);
+    }
   }
 }
