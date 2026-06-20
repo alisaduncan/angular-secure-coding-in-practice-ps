@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
-import { form, Field, required } from '@angular/forms/signals';
+import { form, FormField, required } from '@angular/forms/signals';
 import { Review } from '../../product-types';
 
 @Component({
   selector: 'app-add-review-with-video',
-  imports: [Field],
+  imports: [FormField],
   template: `
     <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
       <h3 class="text-xl font-semibold text-gray-900 mb-4">Add Your Review</h3>
@@ -16,7 +16,7 @@ import { Review } from '../../product-types';
           </label>
           <textarea
             id="reviewText"
-            [field]="reviewForm.reviewText"
+            [formField]="reviewForm.reviewText"
             rows="4"
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Share your experience..."
@@ -30,7 +30,7 @@ import { Review } from '../../product-types';
           <input
             type="text"
             id="video"
-            [field]="reviewForm.video"
+            [formField]="reviewForm.video"
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter video link"
           />

@@ -2,7 +2,7 @@ import { Component, inject, signal, resource } from '@angular/core';
 import { Products as ProductsService } from '../products';
 import { Hero } from '../hero/hero';
 import { ProductItem } from "./product-item";
-import { form, Field } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import { firstValueFrom } from 'rxjs';
 
 interface SearchRequest {
@@ -11,7 +11,7 @@ interface SearchRequest {
 
 @Component({
   selector: 'app-shop',
-  imports: [Hero, ProductItem, Field],
+  imports: [Hero, ProductItem, FormField],
   template: `
   <app-hero />
   <section class="my-[50px] px-8">
@@ -21,7 +21,7 @@ interface SearchRequest {
       <div class="flex justify-center">
         <input
           type="text"
-          [field]="searchForm.query"
+          [formField]="searchForm.query"
           (keyup)="onSearch()"
           placeholder="Search products..."
           class="w-full md:w-96 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
